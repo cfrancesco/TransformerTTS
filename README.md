@@ -73,6 +73,11 @@ pip install -r requirements.txt
 
 Read the individual scripts for more command line arguments.
 
+If you intend to use the pre-trained vocoders, also install the extra requirements under `vocoding`
+```bash
+pip install -r vocoding/extra_requirements.txt
+```
+
 ## Pre-Trained LJSpeech API
 Use our pre-trained model (with Griffin-Lim) from command line with
 ```commandline
@@ -81,7 +86,7 @@ python predict_tts.py -t "Please, say something."
 Or in a python script
 ```python
 from data.audio import Audio
-from model.factory import tts_ljspeech
+from tts.factory import tts_ljspeech
 
 model = tts_ljspeech()
 audio = Audio.from_config(model.config)
@@ -166,7 +171,7 @@ python predict_tts.py -t "Please, say something." -p /path/to/weights/
 ```
 Or in a python script
 ```python
-from model.models import ForwardTransformer
+from tts.models import ForwardTransformer
 from data.audio import Audio
 model = ForwardTransformer.load_model('/path/to/weights/')
 audio = Audio.from_config(model.config)

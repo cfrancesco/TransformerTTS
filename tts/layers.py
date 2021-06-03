@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from model.transformer_utils import positional_encoding
+from tts.transformer_utils import positional_encoding
 
 
 class CNNResNorm(tf.keras.layers.Layer):

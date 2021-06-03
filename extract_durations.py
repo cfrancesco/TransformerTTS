@@ -24,7 +24,7 @@ if __name__ == '__main__':
     parser.add_argument('--best', dest='best', action='store_true',
                         help='Use best head instead of weighted average of heads.')
     parser.add_argument('--autoregressive_weights', type=str, default=None,
-                        help='Explicit path to autoregressive model weights.')
+                        help='Explicit path to autoregressive tts weights.')
     parser.add_argument('--skip_char_pitch', dest='skip_char_pitch', action='store_true')
     parser.add_argument('--skip_durations', dest='skip_durations', action='store_true')
     args = parser.parse_args()
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     if not args.skip_durations:
         model = config_manager.load_model(args.autoregressive_weights)
         if model.r != 1:
-            print(f"ERROR: model's reduction factor is greater than 1, check config. (r={model.r}")
+            print(f"ERROR: tts's reduction factor is greater than 1, check config. (r={model.r}")
         
         data_prep = AlignerPreprocessor.from_config(config=config_manager,
                                                     tokenizer=model.text_pipeline.tokenizer)

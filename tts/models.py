@@ -5,10 +5,10 @@ import tensorflow as tf
 import numpy as np
 from ruamel.yaml import YAML
 
-from model.transformer_utils import create_encoder_padding_mask, create_mel_padding_mask, create_look_ahead_mask
+from tts.transformer_utils import create_encoder_padding_mask, create_mel_padding_mask, create_look_ahead_mask
 from utils.losses import weighted_sum_losses, masked_mean_absolute_error, new_scaled_crossentropy
 from data.text import TextToTokens
-from model.layers import DecoderPrenet, Postnet, StatPredictor, Expand, SelfAttentionBlocks, CrossAttentionBlocks
+from tts.layers import DecoderPrenet, Postnet, StatPredictor, Expand, SelfAttentionBlocks, CrossAttentionBlocks
 from utils.metrics import batch_diagonal_mask
 
 
@@ -613,7 +613,7 @@ class ForwardTransformer(tf.keras.models.Model):
             print(f'WARNING: could not retrieve git hash. {e}')
         with open(path / 'config.yaml', 'w') as f:
             yaml.dump(dict(self.config), f)  # conversion necessary (is tf wrapper otherwise)
-        # only needed when model was loaded from a checkpoint
+        # only needed when tts was loaded from a checkpoint
         self.build_model_weights()
         self.save_weights(path / 'model_weights.hdf5')
     

@@ -102,7 +102,7 @@ def duration_to_alignment_matrix(durations):
 def get_durations_from_alignment(batch_alignments, mels, phonemes, weighted=False):
     """
 
-    :param batch_alignments: attention weights from autoregressive model.
+    :param batch_alignments: attention weights from autoregressive tts.
     :param mels: mel spectrograms.
     :param phonemes: phoneme sequence.
     :param weighted: if True use weighted average of durations of heads, best head if False.

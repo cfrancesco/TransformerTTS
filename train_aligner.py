@@ -85,7 +85,7 @@ config_manager.create_remove_dirs(clear_dir=args.clear_dir,
 config_manager.dump_config()
 config_manager.print_config()
 
-# get model, prepare data for model, create datasets
+# get tts, prepare data for tts, create datasets
 model = config_manager.get_model()
 config_manager.compile_model(model)
 data_prep = AlignerPreprocessor.from_config(config_manager,
@@ -104,7 +104,7 @@ valid_dataset = valid_data_handler.get_dataset(bucket_batch_sizes=config['val_bu
                                                bucket_boundaries=config['bucket_boundaries'],
                                                shuffle=False, drop_remainder=True)
 
-# create logger and checkpointer and restore latest model
+# create logger and checkpointer and restore latest tts
 
 summary_manager = SummaryManager(model=model, log_dir=config_manager.log_dir, config=config)
 checkpoint = tf.train.Checkpoint(step=tf.Variable(1),

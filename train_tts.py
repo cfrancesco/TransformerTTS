@@ -7,7 +7,7 @@ from data.datasets import TTSDataset, TTSPreprocessor
 from utils.decorators import ignore_exception, time_it
 from utils.scheduling import piecewise_linear_schedule
 from utils.logging_utils import SummaryManager
-from model.transformer_utils import create_mel_padding_mask
+from tts.transformer_utils import create_mel_padding_mask
 from utils.scripts_utils import dynamic_memory_allocation, basic_train_parser
 from data.metadata_readers import post_processed_reader
 
@@ -116,7 +116,7 @@ valid_dataset = valid_data_handler.get_dataset(bucket_batch_sizes=config_dict['v
                                                shuffle=False,
                                                drop_remainder=True)
 
-# create logger and checkpointer and restore latest model
+# create logger and checkpointer and restore latest tts
 summary_manager = SummaryManager(model=model, log_dir=config.log_dir, config=config_dict)
 checkpoint = tf.train.Checkpoint(step=tf.Variable(1),
                                  optimizer=model.optimizer,

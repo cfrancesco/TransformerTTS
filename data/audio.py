@@ -86,7 +86,7 @@ class Audio():
             win_length=self.win_length)
     
     def mel_spectrogram(self, wav):
-        """ This is what the model is trained to reproduce. """
+        """ This is what the tts is trained to reproduce. """
         D = self._stft(wav)
         S = self._linear_to_mel(np.abs(D))
         return self._normalize(S).T

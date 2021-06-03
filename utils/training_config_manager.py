@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 import ruamel.yaml
 
-from model.models import Aligner, ForwardTransformer
+from tts.models import Aligner, ForwardTransformer
 from utils.scheduling import reduction_schedule
 
 

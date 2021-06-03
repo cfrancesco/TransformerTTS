@@ -24,7 +24,7 @@ def control_frequency(f):
 class SummaryManager:
     """ Writes tensorboard logs during training.
     
-        :arg model: model object that is trained
+        :arg tts: tts object that is trained
         :arg log_dir: base directory where logs of a config are created
         :arg config: configuration dictionary
         :arg max_plot_frequency: every how many steps to plot
