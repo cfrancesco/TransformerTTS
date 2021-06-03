@@ -12,3 +12,4 @@ webrtcvad
 scipy
 pyworld
 streamlit
+torch
